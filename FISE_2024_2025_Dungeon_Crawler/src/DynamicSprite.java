@@ -48,7 +48,7 @@ public class DynamicSprite extends SolidSprite {
                 i--;               // Ajusta o índice
     
                 // Verifica se o item coletado é uma poção
-                if ("Poção".equals(item.getName())) {
+                if ("Potion".equals(item.getName())) {
                     int lostHP = maxHealth / 2; // Calcula 50% da vida atual
                     takeDamage(lostHP);             // Aplica o dano
                     System.out.println("Item collected: " + item.getName() + ". 50% HP Loss!");

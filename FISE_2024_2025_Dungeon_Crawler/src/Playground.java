@@ -39,7 +39,7 @@ public class Playground {
                             environment.add(new SolidSprite(columnNumber * imageWidth, lineNumber * imageHeight, imageRock, imageWidth, imageHeight));
                             break;
                         case 'P':
-                            items.add(new Item(columnNumber * imageWidth, lineNumber * imageHeight, imagePotion, 32, 32, "Poção"));
+                            items.add(new Item(columnNumber * imageWidth, lineNumber * imageHeight, imagePotion, 32, 32, "Potion"));
                             environment.add(new Sprite(columnNumber * imageWidth, lineNumber * imageHeight, imageGrass, imageWidth, imageHeight));
                             break;
                     }

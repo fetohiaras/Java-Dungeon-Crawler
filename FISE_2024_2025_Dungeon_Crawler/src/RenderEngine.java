@@ -64,22 +64,43 @@ public class RenderEngine extends JPanel implements Engine {
         // Fundo do inventário
         g.setColor(Color.BLACK);
         g.fillRect(50, 50, 300, 200);
-
+    
         // Texto do título
         g.setColor(Color.WHITE);
         g.drawString("Inventory:", 60, 70);
-
+    
         // Recupera o inventário do herói
         DynamicSprite hero = gameEngine.getHero();
         ArrayList<Item> inventory = hero.getInventory();
-
+    
         // Renderiza cada item no inventário
         int x = 60, y = 90;
-        for (Item item : inventory) {
+        int itemsPerRow = 5; // Número de itens por linha
+        int itemSpacing = 80; // Espaçamento horizontal entre itens
+    
+        for (int i = 0; i < inventory.size(); i++) {
+            Item item = inventory.get(i);
+    
+            // Desenha o sprite do item
             g.drawImage(item.image, x, y, null);
-            y += 40; // Ajusta o espaçamento vertical
+    
+            // Desenha o nome do item logo abaixo do sprite
+            g.setColor(Color.WHITE);
+            g.drawString(item.getName(), x, y + (int) item.height + 50);
+    
+            // Ajusta a posição horizontalmente
+            x += itemSpacing;
+    
+            // Se atingir o limite da linha, passa para a próxima linha
+            if ((i + 1) % itemsPerRow == 0) {
+                x = 60; // Reinicia a posição horizontal
+                y += (int) item.height + 40; // Passa para a próxima linha
+            }
         }
     }
+    
+    
+    
 
 
     @Override
